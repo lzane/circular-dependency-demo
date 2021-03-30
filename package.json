@@ -1,0 +1,28 @@
+{
+  "name": "circular-import",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "dependencies": {
+    "babel-cli": "^6.26.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.13.14",
+    "@babel/core": "^7.13.14",
+    "@babel/preset-env": "^7.13.12",
+    "webpack": "^5.28.0",
+    "webpack-cli": "^4.6.0"
+  },
+  "scripts": {
+    "clean": "rm -r dist dist-cjs || true",
+    "build": "npm run clean && webpack --mode development ./src/main.js && babel ./src -d dist-cjs",
+    "run:webpack": "node ./dist/main.js",
+    "run:node-cjs": "node ./dist-cjs/main.js",
+    "run": "(npm run run:webpack || true) && npm run run:node-cjs"
+  },
+  "author": "",
+  "license": "ISC"
+}
